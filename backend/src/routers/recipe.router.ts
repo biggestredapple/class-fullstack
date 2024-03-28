@@ -7,10 +7,12 @@ import {
 } from "controllers";
 import express from "express";
 
+import { IdValidationSchema, recipeCreateValidationSchema, recipeUpdateValidationSchema, validate } from "validation";
+
 export const recipeRouter = express.Router();
 
 recipeRouter.get("/", getAllRecipes);
-recipeRouter.get("/:id", getRecipe);
-recipeRouter.post("/", createRecipe);
-recipeRouter.put("/:id", updateRecipe);
-recipeRouter.delete("/:id", deleteRecipe);
+recipeRouter.get("/:id", validate(IdValidationSchema), getRecipe);
+recipeRouter.post("/", validate(recipeCreateValidationSchema), createRecipe);
+recipeRouter.put("/:id", validate(IdValidationSchema), validate(recipeUpdateValidationSchema),  updateRecipe);
+recipeRouter.delete("/:id", validate(IdValidationSchema), deleteRecipe);
