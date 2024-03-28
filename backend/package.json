@@ -1,0 +1,6 @@
+{
+  "name": "class-tech-backend",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT"
+}
