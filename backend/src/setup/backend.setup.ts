@@ -4,6 +4,7 @@ import cors from "cors";
 import router from "routers";
 import { Logger } from "utils";
 import { MESSAGES } from "consts";
+import { errorHandlerMiddleware } from "middlewares/errorHandler.middleware";
 
 export const backendSetup = () => {
   const app: Express = express();
@@ -14,6 +15,8 @@ export const backendSetup = () => {
   app.use("/health", (_req: Request, res: Response) => res.send("OK"));
 
   app.use("/api", router);
+
+  app.use(errorHandlerMiddleware);
 
   const port = process.env.PORT || 8000;
 
