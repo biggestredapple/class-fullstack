@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 import { recipeService } from "services";
+import { errorHandlerWrapper } from "utils";
+
 
 const getAllRecipesHandler = async (req: Request, res: Response) => {
   const { pageNum, perPage, searchOption, filterOption } = req.query;
@@ -42,8 +44,8 @@ const deleteRecipeHandler = async (req: Request, res: Response) => {
   res.status(httpStatus.OK).json({});
 };
 
-export const getAllRecipes = getAllRecipesHandler;
-export const getRecipe = getRecipeHandler;
-export const createRecipe = createRecipeHandler;
-export const updateRecipe = updateRecipeHandler;
-export const deleteRecipe = deleteRecipeHandler;
+export const getAllRecipes = errorHandlerWrapper(getAllRecipesHandler);
+export const getRecipe = errorHandlerWrapper(getRecipeHandler);
+export const createRecipe = errorHandlerWrapper(createRecipeHandler);
+export const updateRecipe = errorHandlerWrapper(updateRecipeHandler);
+export const deleteRecipe = errorHandlerWrapper(deleteRecipeHandler);
