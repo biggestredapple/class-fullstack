@@ -3,7 +3,6 @@ import httpStatus from "http-status";
 import { recipeService } from "services";
 import { errorHandlerWrapper } from "utils";
 
-
 const getAllRecipesHandler = async (req: Request, res: Response) => {
   const { pageNum, perPage, searchOption, filterOption } = req.query;
   const pageNumber = pageNum ? Number(pageNum) : 0;

@@ -1,4 +1,4 @@
-import { ERROR } from "@/consts/messages";
+import { ERROR } from "consts/messages";
 import { z } from "zod";
 
 const uuidRegex =

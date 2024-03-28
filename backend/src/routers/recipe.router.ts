@@ -6,7 +6,6 @@ import {
   updateRecipe,
 } from "controllers";
 import express from "express";
-
 import { IdValidationSchema, recipeCreateValidationSchema, recipeUpdateValidationSchema, validate } from "validation";
 
 export const recipeRouter = express.Router();

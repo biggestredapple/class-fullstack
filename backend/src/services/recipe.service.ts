@@ -1,8 +1,7 @@
 import { ERROR } from "consts/messages";
-import { RecipeEntity } from "../entities/recipe.entity";
+import { RecipeEntity } from "entities/recipe.entity";
 import { NotFoundError } from "errors";
-import { AppDataSource } from "../setup/database.setup";
-import { FindManyOptions, Like, Raw } from "typeorm";
+import { AppDataSource } from "setup/database.setup";
 import { CreateRecipeRequestType, UpdateRecipeRequestType } from "types";
 
 export const getAllRecipes = async (
