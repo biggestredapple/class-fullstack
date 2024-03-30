@@ -20,3 +20,14 @@ services:
     restart: on-failure
     links:
         - "postgres:database"
+  frontend-app:
+    build: ./frontend  
+    image: class-frontend:latest
+    container_name: class-frontend
+    ports:
+      - '3000:3000'
+    env_file:
+    - ./frontend/.env
+    depends_on:
+      - backend-app 
+    restart: on-failure
